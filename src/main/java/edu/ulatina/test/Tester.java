@@ -1,6 +1,7 @@
 package edu.ulatina.test;
 
-import com.mycompany.demodb.*;
+import edu.ulatina.demodb.UserTO;
+import edu.ulatina.demodb.ServiceUser;
 import java.util.*;
 
 /*
@@ -12,7 +13,18 @@ public class Tester {
 
         ServiceUser felipe = new ServiceUser();
         
-        for(UserTO userTO: felipe.select())
+        List<UserTO> userTOList;
+        
+        try {
+            userTOList = felipe.select();
+            
+        } catch (Exception e) {
+            userTOList = new ArrayList<UserTO>();
+            System.out.println("Notice there was a problem collecting the date from the db check log file to see more");
+            //e.printStackTrace(); this should be change to a funcion which write a log file with the exeption
+        }
+        
+        for(UserTO userTO: userTOList)
         {
             System.out.println("Id: " + userTO.getId() + " Name: " + userTO.getName());
         }

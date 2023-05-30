@@ -1,4 +1,4 @@
-package com.mycompany.demodb;
+package edu.ulatina.demodb;
 
 import java.sql.*;
 import java.util.*;
