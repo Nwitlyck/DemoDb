@@ -68,11 +68,11 @@ public class ServiceUser extends Service implements ICrud<UserTO> {
 
             UserTO user = new UserTO(id, name);
             userTOList.add(user);
-
-            close(rs);
-            close(ps);
-            close(conn);
         }
+
+        close(rs);
+        close(ps);
+        close(conn);
 
         return userTOList;
     }
