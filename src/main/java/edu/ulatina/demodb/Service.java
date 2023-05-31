@@ -1,4 +1,3 @@
-
 package edu.ulatina.demodb;
 
 import java.sql.*;
@@ -7,13 +6,17 @@ import java.sql.*;
  * @author Nwitlyck
  */
 public abstract class Service {
-    
+
     protected Connection conn = null;
 
     public Service() {
     }
 
     protected Connection getConnection() throws Exception {
+
+        if (conn != null && !conn.isClosed()) {
+            return conn;
+        }
 
         Class.forName("com.mysql.cj.jdbc.Driver");
 
@@ -42,7 +45,5 @@ public abstract class Service {
             toClose = null;
         }
     }
-    
-    
-    
+
 }
