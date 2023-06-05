@@ -16,5 +16,6 @@ public interface ICrud<T> {
     public List<T> select() throws Exception;
 
     public T getByPk(int pk) throws Exception;
+    //felipe
 
 }
